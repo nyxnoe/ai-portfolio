@@ -20,10 +20,10 @@ const DATA = {
     bio: "Computer Science undergraduate (2026) focusing on scalable AI solutions. I specialize in building predictive models, end-to-end machine learning pipelines, and deploying NLP classification systems. Experienced in processing large real-world datasets and evaluating generative frameworks.",
   },
   stats: [
-    { label: "ML Models Built", value: "10+", icon: "🤖" },
-    { label: "Records Processed", value: "20K+", icon: "📊" },
+    { label: "ML Models Built", value: "15+", icon: "🫆" },
+    { label: "Records Processed", value: "50K+", icon: "📊" },
     { label: "Best Accuracy", value: "92%", icon: "🎯" },
-    { label: "Projects", value: "6+", icon: "🚀" },
+    { label: "Projects", value: "10+", icon: "👾" },
   ],
   skills: {
     Programming: [
@@ -89,6 +89,39 @@ const DATA = {
       github: "https://github.com/nyxnoe",
       metrics: ["Brand Identity", "Interactive UI"],
       accent: "#ec4899",
+    },
+    {
+      id: 5,
+      title: "FitNation & Women's Health AI",
+      short: "Predictive ML models for personalized health tracking.",
+      desc: "Developed predictive machine learning models to analyze user biometrics. Generated personalized workout, nutrition, and wellness insights using Python and Pandas.",
+      tech: ["Python", "ML", "Pandas", "Scikit-learn"],
+      category: "Data Science",
+      github: "https://github.com/nyxnoe",
+      metrics: ["Predictive Insights", "Biometric Analytics"],
+      accent: "#ec4899",
+    },
+    {
+      id: 6,
+      title: "Real Estate Price Estimator",
+      short: "Regression models predicting housing market trends.",
+      desc: "Analyzed extensive real estate datasets to build highly accurate predictive regression models estimating property values based on location, size, and market features.",
+      tech: ["Python", "Regression", "Data Analytics", "NumPy"],
+      category: "Data Science",
+      github: "https://github.com/nyxnoe",
+      metrics: ["Regression Analytics", "Market Forecasting"],
+      accent: "#3b82f6",
+    },
+    {
+      id: 7,
+      title: "GitHub Profile Explorer",
+      short: "Live interactive analytics dashboard using REST APIs.",
+      desc: "Web application fetching and visualizing live GitHub user data—including repositories, contribution graphs, and language usage—via the GitHub REST API.",
+      tech: ["React", "JavaScript", "REST API", "Data Viz"],
+      category: "Web App",
+      github: "https://github.com/nyxnoe",
+      metrics: ["Live API Data", "Interactive UI"],
+      accent: "#f43f5e",
     }
   ],
   experience: [
@@ -377,38 +410,78 @@ function Skills() {
 }
 
 function Projects() {
+  const [filter, setFilter] = useState("All");
+  const categories = ["All", ...new Set(DATA.projects.map(p => p.category))];
+  
+  const filteredProjects = filter === "All" 
+    ? DATA.projects 
+    : DATA.projects.filter(p => p.category === filter);
+
   return (
     <section id="projects" className="py-24 px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="What I've Built" title="Featured Projects" />
         
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {DATA.projects.map((project) => (
-            <motion.div key={project.id} variants={fadeUp} whileHover={{ y: -10 }} className="glass overflow-hidden flex flex-col h-full group">
-              <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${project.accent}, transparent)` }} />
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-4">
-                  <span className="px-2.5 py-1 text-[10px] font-mono rounded-md" style={{ color: project.accent, backgroundColor: `${project.accent}15` }}>
+        {/* Interactive Category Filter */}
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-wrap gap-3 mb-10">
+          {categories.map(cat => (
+            <button 
+              key={cat} 
+              onClick={() => setFilter(cat)} 
+              className={`px-5 py-2 rounded-full font-mono text-xs transition-all duration-300 border ${
+                filter === cat 
+                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.4)]' 
+                : 'border-slate-700 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Glowing Project Cards */}
+        <motion.div 
+          layout 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {filteredProjects.map((project) => (
+            <motion.div 
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              key={project.id} 
+              whileHover={{ y: -10, boxShadow: `0 20px 40px -10px ${project.accent}40` }} 
+              className="glass overflow-hidden flex flex-col h-full group border-slate-700 hover:border-transparent transition-all"
+            >
+              <div className="h-1.5 w-full transition-all duration-500 group-hover:h-2" style={{ background: `linear-gradient(90deg, ${project.accent}, transparent)` }} />
+              <div className="p-6 flex flex-col flex-grow relative overflow-hidden">
+                
+                {/* Subtle background glow on hover */}
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" style={{ backgroundColor: project.accent }} />
+
+                <div className="flex justify-between items-start mb-4 relative z-10">
+                  <span className="px-3 py-1 text-[10px] font-mono rounded-md border" style={{ color: project.accent, backgroundColor: `${project.accent}10`, borderColor: `${project.accent}30` }}>
                     {project.category}
                   </span>
-                  <a href={project.github} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-colors">
-                    <Github size={20} />
+                  <a href={project.github} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-transform hover:scale-110">
+                    <Github size={22} />
                   </a>
                 </div>
-                <h3 className="text-xl font-orbitron font-bold text-slate-100 mb-2">{project.title}</h3>
-                <p className="text-sm font-exo text-slate-400 mb-4 flex-grow">{project.desc}</p>
+                <h3 className="text-xl font-orbitron font-bold text-slate-100 mb-2 relative z-10">{project.title}</h3>
+                <p className="text-sm font-exo text-slate-400 mb-5 flex-grow relative z-10 leading-relaxed">{project.desc}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 relative z-10">
                   {project.metrics.map(m => (
-                    <span key={m} className="text-[10px] font-mono px-2 py-1 border rounded" style={{ borderColor: `${project.accent}40`, color: project.accent }}>
+                    <span key={m} className="text-[10px] font-mono px-2 py-1 border rounded bg-slate-900/50" style={{ borderColor: `${project.accent}40`, color: project.accent }}>
                       {m}
                     </span>
                   ))}
                 </div>
                 
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-800">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-800 relative z-10">
                   {project.tech.map(t => (
-                    <span key={t} className="text-[11px] font-mono text-slate-300 bg-slate-800 px-2 py-1 rounded">
+                    <span key={t} className="text-[11px] font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md">
                       {t}
                     </span>
                   ))}
