@@ -47,7 +47,7 @@ const DATA = {
   },
   projects: [
     {
-      id: 8, // New Project!
+      id: 1, // New Project!
       title: "TalentProof AI",
       short: "AI-powered recruitment and candidate evaluation platform.",
       desc: "Developed an intelligent screening system that utilizes large language models to analyze resumes and conduct automated technical evaluations. Integrated OpenRouter for cloud LLMs and Ollama for secure, local inference processing.",
@@ -58,7 +58,7 @@ const DATA = {
       accent: "#a855f7", // A sleek purple neon glow
     },
     {
-      id: 1,
+      id: 2,
       title: "Agentic RAG Evaluation System",
       short: "Advanced retrieval framework evaluating EU AI Act compliance.",
       desc: "Developed an Agentic Retrieval-Augmented Generation (RAG) system. Engineered data ingestion pipelines and comprehensive evaluation scripts utilizing FAISS for vector search, Cohere for robust embeddings, and Ollama for local LLM inference against EU AI Act datasets.",
@@ -69,7 +69,7 @@ const DATA = {
       accent: "#f59e0b",
     },
     {
-      id: 2,
+      id: 3,
       title: "AURA — AI Chat System",
       short: "Interactive AI chat with real-time responses & <1s latency.",
       desc: "Engineered an interactive full-stack AI chat system. Integrated OpenRouter LLMs for intelligent conversations. Reduced response latency to <1 second and cut runtime errors by 40% through backend API optimization.",
@@ -80,7 +80,7 @@ const DATA = {
       accent: "#06b6d4",
     },
     {
-      id: 3,
+      id: 4,
       title: "TruthGuard — Misinformation Detector",
       short: "NLP fake news classifier with 85–90% accuracy on 10K+ samples.",
       desc: "NLP-based classification system for fake news detection. Processed 10,000+ text samples using TF-IDF vectorization. Achieved 85-90% accuracy with Logistic Regression and SVM, decreasing false predictions by ~20%.",
@@ -91,7 +91,7 @@ const DATA = {
       accent: "#8b5cf6",
     },
     {
-      id: 4,
+      id: 5,
       title: "Kagazi Brand Identity & Web",
       short: "Origami-style aesthetic branding and landing page.",
       desc: "Designed an origami-inspired logo and visual identity for a paper company called Kagazi. Translated the aesthetic into a clean, modern web interface showcasing interactive UI elements and animated storytelling features.",
@@ -102,7 +102,7 @@ const DATA = {
       accent: "#ec4899",
     },
     {
-      id: 5,
+      id: 6,
       title: "FitNation & Women's Health AI",
       short: "Predictive ML models for personalized health tracking.",
       desc: "Developed predictive machine learning models to analyze user biometrics. Generated personalized workout, nutrition, and wellness insights using Python and Pandas.",
@@ -113,7 +113,7 @@ const DATA = {
       accent: "#ec4899",
     },
     {
-      id: 6,
+      id: 7,
       title: "Real Estate Price Estimator",
       short: "Regression models predicting housing market trends.",
       desc: "Analyzed extensive real estate datasets to build highly accurate predictive regression models estimating property values based on location, size, and market features.",
@@ -124,7 +124,7 @@ const DATA = {
       accent: "#3b82f6",
     },
     {
-      id: 7,
+      id: 8,
       title: "GitHub Profile Explorer",
       short: "Live interactive analytics dashboard using REST APIs.",
       desc: "Web application fetching and visualizing live GitHub user data—including repositories, contribution graphs, and language usage—via the GitHub REST API.",
