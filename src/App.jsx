@@ -32,20 +32,31 @@ const DATA = {
     "AI / ML": [
       { name: "Scikit-learn", level: 88 }, { name: "Machine Learning", level: 85 }, { name: "NLP & Text Analysis", level: 78 }, { name: "TensorFlow", level: 65 }
     ],
+    "LLMs & APIs": [
+      { name: "Ollama (Local LLMs)", level: 85 }, { name: "OpenRouter", level: 88 }, { name: "Cohere", level: 75 }, { name: "FAISS", level: 80 }
+    ],
     Analytics: [
       { name: "Pandas & NumPy", level: 88 }, { name: "Matplotlib / Seaborn", level: 85 }, { name: "Power BI / Tableau", level: 70 }
     ],
     Frameworks: [
-      { name: "Streamlit", level: 82 }, { name: "Flask / FastAPI", level: 78 }, { name: "React", level: 62 }
-    ],
-    Databases: [
-      { name: "MySQL / PostgreSQL", level: 80 }, { name: "MongoDB", level: 65 }, { name: "Supabase", level: 68 }
+      { name: "Streamlit", level: 82 }, { name: "FastAPI / Flask", level: 80 }, { name: "React", level: 65 }
     ],
     Tools: [
-      { name: "Git & GitHub", level: 85 }, { name: "Docker", level: 58 }, { name: "AWS", level: 52 }
+      { name: "Git & GitHub", level: 85 }, { name: "Docker", level: 60 }, { name: "Supabase / DBs", level: 75 }
     ],
   },
   projects: [
+    {
+      id: 8, // New Project!
+      title: "TalentProof AI",
+      short: "AI-powered recruitment and candidate evaluation platform.",
+      desc: "Developed an intelligent screening system that utilizes large language models to analyze resumes and conduct automated technical evaluations. Integrated OpenRouter for cloud LLMs and Ollama for secure, local inference processing.",
+      tech: ["Python", "FastAPI", "React", "OpenRouter", "Ollama", "LLMs"],
+      category: "AI/ML",
+      github: "https://github.com/nyxnoe",
+      metrics: ["Automated Screening", "Local & Cloud LLMs"],
+      accent: "#a855f7", // A sleek purple neon glow
+    },
     {
       id: 1,
       title: "Agentic RAG Evaluation System",
